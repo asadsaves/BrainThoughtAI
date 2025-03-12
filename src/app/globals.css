@@ -1,33 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary-glow: rgba(187, 134, 252, 0.15);
+    --secondary-glow: rgba(55, 0, 179, 0.12);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 100%;
+  }
+
+  /* Logo Specific Styles */
+  .logo-icon {
+    animation: logoGlow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(187, 134, 252, 0.3));
+  }
+
+  .logo-text {
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 0 30px rgba(187, 134, 252, 0.3);
+    letter-spacing: 0.2em;
+  }
+
+  .logo-text span:first-child {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(187, 134, 252, 0.1);
+  }
+
+  /* Animated Dots Styles */
+  .logo-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 0.25rem;
+  }
+
+  .logo-dots .dot {
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 1;
+    animation: dotFloat 1.4s ease-in-out infinite;
+    transform-origin: center;
+    background: linear-gradient(to right, #BB86FC, #BB86FC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(187, 134, 252, 0.4);
+  }
+
+  .logo-dots .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .logo-dots .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes dotFloat {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-3px) scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes logoGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 20px rgba(187, 134, 252, 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 35px rgba(187, 134, 252, 0.6));
+    }
+  }
+
+  /* Enhanced Background Styles */
+  .bg-gradient-animate {
+    background: linear-gradient(
+      220deg,
+      #13111C,
+      #1A1A2E,
+      #1E1E2E,
+      #1A1A2E,
+      #13111C
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    will-change: background-position;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 0% 0%, var(--primary-glow), transparent 40%),
+      radial-gradient(circle at 100% 100%, var(--secondary-glow), transparent 40%);
+    opacity: 0;
+    animation: overlayPulse 8s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    will-change: opacity, transform;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .bg-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .glow-effect {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(187, 134, 252, 0.08), transparent 70%);
+    filter: blur(60px);
+    opacity: 0;
+    animation: glowPulse 10s ease-in-out infinite;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    will-change: opacity, transform;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #BB86FC20, #3700B320);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #BB86FC40, #3700B340);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Firefox Scrollbar Styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #BB86FC20 transparent;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out forwards;
+  }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 8px 12px;
+  }
+
+  .dark .typing-indicator {
+    background: theme('colors.gray.700');
+  }
+
+  .typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background-color: #BB86FC;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typing-pulse 1.4s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .button-glow {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .button-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #BB86FC, #3700B3);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .button-glow:hover::before {
+    opacity: 0.5;
+  }
+
+  .button-press {
+    transition: transform 0.1s ease;
+  }
+
+  .button-press:active {
+    transform: scale(0.95);
+  }
+
+  .message-fade-in {
+    animation: message-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Smooth Scroll Behavior */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Smooth animations on mobile */
+  @media (max-width: 768px) {
+    .message-fade-in {
+      animation-duration: 0.3s;
+    }
+    
+    .typing-indicator {
+      padding: 6px 10px;
+    }
+    
+    .typing-indicator span {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  /* Improve performance for animations */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .hardware-accelerate {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes overlayPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translate(-2%, 2%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes message-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing-pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
   }
 }

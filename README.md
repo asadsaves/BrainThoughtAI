@@ -1,12 +1,51 @@
-# Ansh & Riley Full-Stack Template
+# BrainThought - AI Chat Assistant
 
-This is a full-stack template project for Software Composers to create  applications with AI.
+A modern AI chat application built with Next.js 14, TypeScript, and Together AI. Features a ChatGPT-like interface with real-time streaming responses and dark mode support.
 
-## Getting started
-To create a new project, you go to `/paths`, choose from our list of Paths, and then use Cursor's Composer feature to quickly scaffold your project!
+## Features
 
-You can also edit the Path's prompt template to be whatever you like!
+- Modern, responsive UI with ChatGPT-like design
+- Real-time streaming responses from Together AI's Mixtral-8x7B model
+- Dark mode support with smooth transitions
+- Auto-expanding input field
+- Message history with timestamps
+- Mobile-friendly design
+- Keyboard shortcuts (Enter to send, Shift + Enter for new line)
 
+## Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Together AI (Mixtral-8x7B-Instruct model)
+- next-themes for dark mode
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root directory and add your Together AI API key:
+   ```
+   TOGETHER_API_KEY=your_api_key_here
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Environment Variables
+
+- `TOGETHER_API_KEY`: Your Together AI API key
+
+## Usage
+
+- Type your message in the input field
+- Press Enter to send (or use the send button)
+- Use Shift + Enter for new lines
 ## Technologies used
 This doesn't really matter, but is useful for the AI to understand more about this project. We are using the following technologies
 - React with Next.js 14 App Router
