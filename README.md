@@ -14,7 +14,8 @@ A modern AI chat application built with Next.js 14, TypeScript, and Together AI.
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 14 (App Router) 
+
 - TypeScript
 - Tailwind CSS
 - Together AI (Mixtral-8x7B-Instruct model)
