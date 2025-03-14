@@ -1,5 +1,5 @@
 # BrainThought - AI Chat Assistant
-
+Live- https://asad-brainthought-ai.vercel.app/
 A modern AI chat application built with Next.js 14, TypeScript, and Together AI. Features a ChatGPT-like interface with real-time streaming responses and dark mode support.
 
 ## Features
